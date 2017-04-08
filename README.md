@@ -1,4 +1,4 @@
-# numsep
+# numsep [![](https://travis-ci.org/a-x-/numsep.svg?branch=master)](https://travis-ci.org/a-x-/numsep)
 Format numbers.
 
 Split onto triads &amp; wrap with html-elements instead of inserting space separators.
