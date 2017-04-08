@@ -27,6 +27,7 @@ function splitOntoTriads(n) {
  * @param {Function} numTmpl_
  */
 function formatNumber (n_, triadTmpl_, numTmpl_) {
+    if (n_.trim() === '') return '';
     var n = +n_;
     var tmpl = triadTmpl_ || function(n) { return '<span class="num__group">' + n + '</span>'; };
     var numTmpl = numTmpl_ || function(n) { return '<span class="num">' + n + '</span>'; };

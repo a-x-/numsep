@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:a-x-/numsep.git",
   "author": "Alexander Mekhonoshin (invntrm) <invntrm@yandex.ru>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.js"
+  }
 }
