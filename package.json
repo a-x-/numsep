@@ -1,0 +1,9 @@
+{
+  "name": "numsep",
+  "version": "0.1.0",
+  "description": "Format numbers. Split onto triads & wrap with html elements for perfect UX instead of inserting space separators",
+  "main": "index.js",
+  "repository": "git@github.com:a-x-/numsep.git",
+  "author": "Alexander Mekhonoshin (invntrm) <invntrm@yandex.ru>",
+  "license": "MIT"
+}
