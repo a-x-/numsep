@@ -8,7 +8,7 @@ Split onto triads &amp; wrap with html-elements instead of inserting space separ
 
 ## usage
 
-<img src="https://cloud.githubusercontent.com/assets/6201068/24832059/3f4a91a2-1cb0-11e7-82cc-6c548310dd59.png" align="right" height="260"/>
+<img src="https://cloud.githubusercontent.com/assets/6201068/24832059/3f4a91a2-1cb0-11e7-82cc-6c548310dd59.png" align="left" height="260"/>
 
 ```js
 var triadTmpl = n => `<span>${n}</span>`;
