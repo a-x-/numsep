@@ -3,6 +3,16 @@ var triadTmpl = function(n) { return '<span>' + n + '</span>' };
 var numberTmpl = triadTmpl;
 var te = new Te(formatNumber);
 
+te.st(1, '<span><span>1</span></span>');
+te.st(100, '<span><span>100</span></span>');
+te.st(10001, '<span><span>10</span><span>001</span></span>');
+te.st(-10001, '<span>-<span>10</span><span>001</span></span>');
+te.st(-10001.0, '<span>-<span>10</span><span>001</span></span>'); // .0 is skiped
+te.st(-10001.505, '<span>-<span>10</span><span>001</span>.505</span>');
+te.st(-0.505, '<span>-<span>0</span>.505</span>');
+te.st(0.505, '<span><span>0</span>.505</span>');
+te.st(0, '<span><span>0</span></span>');
+
 te.st('1', '<span><span>1</span></span>');
 te.st('100', '<span><span>100</span></span>');
 te.st('10001', '<span><span>10</span><span>001</span></span>');
@@ -12,6 +22,7 @@ te.st('-10001.505', '<span>-<span>10</span><span>001</span>.505</span>');
 te.st('-0.505', '<span>-<span>0</span>.505</span>');
 te.st('0.505', '<span><span>0</span>.505</span>');
 te.st('0', '<span><span>0</span></span>');
+
 te.st('', '');
 te.st(' ', '');
 te.st(' 0', '<span><span>0</span></span>');
