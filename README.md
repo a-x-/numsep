@@ -13,12 +13,15 @@ var triadTmpl = n => `<span>${n}</span>`;
 var numTmpl = triadTmpl;
 var formatNumber = num => require('numsep')(num, triadTmpl, numTmpl);
 
-formatNumber("1") === "<span><span>1</span></span>"
-formatNumber("100") === "<span><span>100</span></span>"
-formatNumber("10001") === "<span><span>10</span><span>001</span></span>"
-formatNumber("-10001") === "<span>-<span>10</span><span>001</span></span>"
+formatNumber(1) === "<span><span>1</span></span>"
+formatNumber(100) === "<span><span>100</span></span>"
+formatNumber(10001) === "<span><span>10</span><span>001</span></span>"
+formatNumber(-10001) === "<span>-<span>10</span><span>001</span></span>"
+formatNumber(-10001.0) === "<span>-<span>10</span><span>001</span></span>"
 formatNumber("-10001.0") === "<span>-<span>10</span><span>001</span>.0</span>"
+formatNumber(-10001.505) === "<span>-<span>10</span><span>001</span>.505</span>"
 formatNumber("-10001.505") === "<span>-<span>10</span><span>001</span>.505</span>"
+formatNumber(-0.505) === "<span>-<span>0</span>.505</span>"
 formatNumber("-0.505") === "<span>-<span>0</span>.505</span>"
 formatNumber("0.505") === "<span><span>0</span>.505</span>"
 ```
