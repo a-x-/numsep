@@ -7,7 +7,7 @@ function zeropadTriad(n) {
 }
 
 /**
- * @param  {Number} n_
+ * @param  {Number} n
  * @return {Number[]} 0..999
  */
 function splitOntoTriads(n) {
@@ -22,11 +22,12 @@ function splitOntoTriads(n) {
 }
 
 /**
- * @param {String} n_ - number in string
- * @param {Function} triadTmpl_
- * @param {Function} numTmpl_
+ * @param {String|Number} ns - number or number in string
+ * @param {Function} triadTmpl_ - e.g. triad => `<span>${triad}</span>`
+ * @param {Function} numTmpl_ - e.g. num => `<div>${num}</div>`
  */
-function formatNumber (n_, triadTmpl_, numTmpl_) {
+function formatNumber (ns, triadTmpl_, numTmpl_) {
+    var n_ = typeof ns === 'string' ? ns : String(ns);
     if (n_.trim() === '') return '';
     var n = +n_;
     var tmpl = triadTmpl_ || function(n) { return '<span class="num__group">' + n + '</span>'; };
