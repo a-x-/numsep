@@ -21,25 +21,44 @@ function splitOntoTriads(n) {
     return res;
 }
 
+function triadTmplDefault (n) {
+    return '<span class="num__group">' + n + '</span>';
+}
+
+function numTmplDefault (n) {
+    return '<span class="num">' + n + '</span>';
+}
+
+function concatDefault (sign, triads, frac) {
+    return sign + triads.join('') + frac;
+}
+
+function padTriads (triads) {
+    var zeroPrefixedTriads = triads.slice(1).map(function(n) {
+        return zeropadTriad(String(n));
+    });
+    return [ String(triads[0]) ].concat(zeroPrefixedTriads);
+}
+
 /**
  * @param {String|Number} ns - number or number in string
  * @param {Function} triadTmpl_ - e.g. triad => `<span>${triad}</span>`
  * @param {Function} numTmpl_ - e.g. num => `<div>${num}</div>`
+ * @param {Function} concat (sign, triads, frac) => sign + triads.join('') + frac
  */
-function formatNumber (ns, triadTmpl_, numTmpl_) {
+function formatNumber (ns, triadTmpl_, numTmpl_, concat_) {
     var n_ = typeof ns === 'string' ? ns : String(ns);
     if (n_.trim() === '') return '';
     var n = +n_;
-    var tmpl = triadTmpl_ || function(n) { return '<span class="num__group">' + n + '</span>'; };
-    var numTmpl = numTmpl_ || function(n) { return '<span class="num">' + n + '</span>'; };
+    var tmpl = triadTmpl_ || triadTmplDefault;
+    var numTmpl = numTmpl_ || numTmplDefault;
+    var concat = concat_ || concatDefault;
     var triads = splitOntoTriads(n);
     var zeroPrefixedTriads = triads.slice(1).map(function(n) { return zeropadTriad(String(n)); });
-    var html = [ String(triads[0]) ].concat( zeroPrefixedTriads ).map(tmpl).join('');
-
     var sign = n < 0 ? '-' : '';
     var hasFrac = /\./.test(n_);
     var frac = hasFrac ? n_.replace(/^.+\./, '.') : '';
-    return numTmpl(sign + html + frac);
+    return numTmpl(concat(sign, padTriads(triads).map(tmpl), frac));
 }
 
 module.exports = formatNumber;
