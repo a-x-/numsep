@@ -7,6 +7,7 @@
   "author": "Alexander Mekhonoshin (invntrm) <invntrm@yandex.ru>",
   "license": "MIT",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "postversion": "git push && git push --tags && npm publish"
   }
 }
